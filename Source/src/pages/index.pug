@@ -1,0 +1,293 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    link(rel='stylesheet', href='css/main.css')
+    title WS H.Split GW
+    body
+        //- ------------- navigation ---
+        //- 1. header
+        //- 2. smart
+        //- 3. process
+        //- 4. featured
+        //- 5. services
+        //- 6. team
+        //- 7. client-said
+        //- 8. logo
+        //- 9. footer
+        //- ----------------------------
+        mixin modalControls
+            span.modal__close 
+            span.modal__info
+            span.modal__arrow 
+            span.modal__arrow 
+        mixin caption(hlTitle, title, description)
+            .title
+                span.highlight-text=hlTitle
+                | 
+                =title
+            .description=description
+        //- ---------------------------- IE or EDGE
+        .ie-or-edge
+            .ie-or-edge__close(onclick="document.getElementsByClassName('ie-or-edge')[0].style.display = 'none'") X
+            | Your browser may not display the page correctly. For the correct display of the page, you can use one of these browsers: 
+            a(href='https://www.opera.com/') Opera
+            |, 
+            a(href='https://www.mozilla.org/') Firefox
+            |, 
+            a(href='https://www.google.com/chrome/') Chrome
+            |, 
+            a(href='https://www.apple.com/safari/') Safari
+            |.
+            script(type='text/javascript').
+                var isIE = /*@cc_on!@*/false || !!document.documentMode, // Internet Explorer 6-11
+                isEdge = !isIE && !!window.StyleMedia; // Edge 20+
+                // Check if Internet Explorer 6-11 OR Edge 20+
+                if(isIE || isEdge) {
+                document.getElementsByClassName('ie-or-edge')[0].style.display = 'block';
+                } else {
+                document.getElementsByClassName('ie-or-edge')[0].parentNode.removeChild(document.getElementsByClassName('ie-or-edge')[0]);
+                }
+        //- ---------------------------- 1. header
+        a(name='home').anchor.anchor-home
+        header.header
+            .container.header__content
+                .header__logo Smart
+                input(type='checkbox', name='', id='menu').header__menu-controll
+                label(for='menu').header__menu-label.menu-label
+                    .menu-label__line.menu-label__line_top
+                    .menu-label__line.menu-label__line_mid
+                    .menu-label__line.menu-label__line_bot
+                mixin link(href, hlText, text)
+                    a.menu__link.link
+                        label(for='menu' onclick='location.hash="' + href + '"').link__label
+                            span.highlight-text=hlText
+                            =text
+                nav.header__menu.menu
+                    +link('#home', 'H', 'ome')
+                    +link('#process', 'P', 'rocess')
+                    +link('#featured', 'W', 'orks')
+                    +link('#services', 'S', 'ervices')
+                    +link('#team', 'T', 'eam')
+                    +link('#clients', 'C', 'lients')
+                    +link('#partners', 'P', 'artners')
+                    +link('#contact', 'C', 'ontact')
+                    .menu__socials.socials
+                        a.socials__link(href='#') 
+                        a.socials__link(href='#') 
+                        a.socials__link(href='#') 
+                        a.socials__link(href='#') 
+        //- ---------------------------- 2. smart
+        section.smart-agency
+            .container
+                +caption('Smart', 'Agency Landing Page', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, fuga provident. Libero magni quibusdam labore ad iste saepe hic, maxime qui ipsum tempore beatae, volu tomi ptates doloremque rerum aspernatur dolorum at!')
+                .forms
+                    form.forms__form-send-message.form-send-message
+                        .form-send-message__title
+                            span.highlight-text Send 
+                            |A Message
+                        label(data-info='Your Name:').form-send-message__label
+                        input(type='text' placeholder='Your Name' required).form-send-message__input.form-send-message__name
+                        label(data-info='Your Email:').form-send-message__label
+                        input(type='email' placeholder='Your Email' required).form-send-message__input.form-send-message__email
+                        label(data-info='Your Message:').form-send-message__label
+                        textarea(rows='3' placeholder='Your Message' required).form-send-message__input.form-send-message__message
+                        button.form-send-message__button.button
+                            |Send Message 
+                            svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='17px', height='10px').button__svg.svg
+                                path(fill-rule='evenodd', opacity='0.749', d='M-0.000,5.999 L13.279,5.999 L9.391,9.999 L12.140,9.999 L17.000,4.999 L12.140,-0.000 L9.391,-0.000 L13.279,4.000 L-0.000,4.000 L-0.000,5.999 Z').svg__path
+        //- ---------------------------- 3. process
+        mixin process(icon, nameProc, description, article)
+            .processes__process.process
+                .process__icon=icon
+                .process__name-proc=nameProc
+                .process__description=description
+                button.process__button.button
+                    svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='16px', height='16px').button__svg.svg
+                        path(fill-rule='evenodd', opacity='0.502', d='M16.000,9.043 L8.348,9.043 L8.348,15.999 L6.956,15.999 L6.956,9.043 L-0.000,9.043 L-0.000,7.652 L6.956,7.652 L6.956,-0.000 L8.348,-0.000 L8.348,7.652 L16.000,7.652 L16.000,9.043 Z').svg__path
+                    | Know More
+                .modal
+                    .modal__content
+                        h1.modal__title=nameProc
+                        p.modal__article=article
+                    +modalControls
+        section.work-process
+            a(name='process').anchor
+            .container
+                +caption('Working','Process','Lorem ipsum dolor sit amet consectet ur adipiscing elit  Vestibulum bibend um vestibulum.')
+                .processes
+                    +process('','Koc Koi Tomi','Lorem ipsum is dummy lorem very dumy','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio quibusdam repellendus placeat illum similique, voluptatum modi voluptates fuga laborum laudantium incidunt ea explicabo, debitis rem eveniet, delectus necessitatibus. Error consequuntur voluptatibus ducimus repellendus provident, earum, placeat nostrum, nihil asperiores assumenda perferendis distinctio. Autem neque quisquam molestiae doloribus deserunt maiores labore, doloremque non accusamus nam harum tempore eos ea consectetur, minus eius alias quidem natus expedita recusandae odio rerum maxime. Natus laborum odit consequatur ducimus, facilis nesciunt, nisi. Expedita necessitatibus quo earum eum deleniti laudantium repellendus aliquam? Cumque eveniet mollitia expedita hic quidem possimus officiis tenetur, provident sequi aspernatur deserunt nobis dolorem molestiae consectetur alias temporibus blanditiis architecto id ad ducimus. Commodi temporibus repellat dolore, architecto. Odit autem nemo magni fugit expedita aspernatur porro molestias perferendis nesciunt quasi incidunt atque sequi pariatur, perspiciatis magnam repellendus sapiente ipsa officia enim sit illum asperiores corporis voluptas quidem. Amet et voluptatem reiciendis perferendis aliquid enim labore quia sequi eius dolorum? Quasi sapiente impedit nulla cum non laudantium quod iusto, facilis nam maiores minima corrupti dolorum in temporibus sit, dicta dignissimos fugiat, inventore maxime similique aperiam at autem distinctio, repellendus voluptate! Corporis labore deserunt quibusdam aspernatur cupiditate esse fugiat voluptatum, debitis quis sed. Molestiae sunt accusamus aspernatur voluptatum nihil dolorem, quo perferendis! Aut doloremque expedita soluta impedit omnis eveniet reiciendis, assumenda animi aperiam, laborum, unde nisi nulla nobis! Facere minus perferendis laborum, deleniti officia nam repellendus iure itaque corporis reiciendis nostrum nobis voluptatum dignissimos cupiditate error blanditiis et voluptate sunt, praesentium magnam recusandae, aliquid laboriosam?')
+                    +process('','Koimona Set','Lorem ipsum is dummy you lorem very dumyL is','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio quibusdam repellendus placeat illum similique, voluptatum modi voluptates fuga laborum laudantium incidunt ea explicabo, debitis rem eveniet, delectus necessitatibus. Error consequuntur voluptatibus ducimus repellendus provident, earum, placeat nostrum, nihil asperiores assumenda perferendis distinctio. Autem neque quisquam molestiae doloribus deserunt maiores labore, doloremque non accusamus nam harum tempore eos ea consectetur, minus eius alias quidem natus expedita recusandae odio rerum maxime. Natus laborum odit consequatur ducimus, facilis nesciunt, nisi. Expedita necessitatibus quo earum eum deleniti laudantium repellendus aliquam? Cumque eveniet mollitia expedita hic quidem possimus officiis tenetur, provident sequi aspernatur deserunt nobis dolorem molestiae consectetur alias temporibus blanditiis architecto id ad ducimus. Commodi temporibus repellat dolore, architecto. Odit autem nemo magni fugit expedita aspernatur porro molestias perferendis nesciunt quasi incidunt atque sequi pariatur, perspiciatis magnam repellendus sapiente ipsa officia enim sit illum asperiores corporis voluptas quidem. Amet et voluptatem reiciendis perferendis aliquid enim labore quia sequi eius dolorum? Quasi sapiente impedit nulla cum non laudantium quod iusto, facilis nam maiores minima corrupti dolorum in temporibus sit, dicta dignissimos fugiat, inventore maxime similique aperiam at autem distinctio, repellendus voluptate! Corporis labore deserunt quibusdam aspernatur cupiditate esse fugiat voluptatum, debitis quis sed. Molestiae sunt accusamus aspernatur voluptatum nihil dolorem, quo perferendis! Aut doloremque expedita soluta impedit omnis eveniet reiciendis, assumenda animi aperiam, laborum, unde nisi nulla nobis! Facere minus perferendis laborum, deleniti officia nam repellendus iure itaque corporis reiciendis nostrum nobis voluptatum dignissimos cupiditate error blanditiis et voluptate sunt, praesentium magnam recusandae, aliquid laboriosam?')
+                    +process('','Setting Koire','Lorem ipsum is dummy lorem very yLorem ipsus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio quibusdam repellendus placeat illum similique, voluptatum modi voluptates fuga laborum laudantium incidunt ea explicabo, debitis rem eveniet, delectus necessitatibus. Quasi sapiente impedit nulla cum non laudantium quod iusto, facilis nam maiores minima corrupti dolorum in temporibus sit, dicta dignissimos fugiat, inventore maxime similique aperiam at autem distinctio, repellendus voluptate! Corporis labore deserunt quibusdam aspernatur cupiditate esse fugiat voluptatum, debitis quis sed. Molestiae sunt accusamus aspernatur voluptatum nihil dolorem, quo perferendis! Aut doloremque expedita soluta impedit omnis eveniet reiciendis, assumenda animi aperiam, laborum, unde nisi nulla nobis! Facere minus perferendis laborum, deleniti officia nam repellendus iure itaque corporis reiciendis nostrum nobis voluptatum dignissimos cupiditate error blanditiis et voluptate sunt, praesentium magnam recusandae, aliquid laboriosam?')
+                    +process('','Ko Image Lara','Lorem ipsum is dummy ry dumyLorem ipsum is','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio quibusdam repellendus placeat illum similique, voluptatum modi voluptates fuga laborum laudantium incidunt ea explicabo, debitis rem eveniet, delectus necessitatibus. Error consequuntur voluptatibus ducimus repellendus provident, earum, placeat nostrum, nihil asperiores assumenda perferendis distinctio. Autem neque quisquam molestiae doloribus deserunt maiores labore, doloremque non accusamus nam harum tempore eos ea consectetur, minus eius alias quidem natus expedita recusandae odio rerum maxime. Natus laborum odit consequatur ducimus, facilis nesciunt, nisi. Expedita necessitatibus quo earum eum deleniti laudantium repellendus aliquam? Cumque eveniet mollitia expedita hic quidem possimus officiis tenetur, provident sequi aspernatur deserunt nobis dolorem molestiae consectetur alias temporibus blanditiis architecto id ad ducimus. Commodi temporibus repellat dolore, architecto. Odit autem nemo magni fugit expedita aspernatur porro molestias perferendis nesciunt quasi incidunt atque sequi pariatur, perspiciatis magnam repellendus sapiente ipsa officia enim sit illum asperiores corporis voluptas quidem. Amet et voluptatem reiciendis perferendis aliquid enim labore quia sequi eius dolorum? Quasi sapiente impedit nulla cum non laudantium quod iusto, facilis nam maiores minima corrupti dolorum in temporibus sit, dicta dignissimos fugiat, inventore maxime similique aperiam at autem distinctio, repellendus voluptate! Corporis labore deserunt quibusdam aspernatur cupiditate esse fugiat voluptatum, debitis quis sed. Molestiae sunt accusamus aspernatur voluptatum nihil dolorem, quo perferendis! Aut doloremque expedita soluta impedit omnis eveniet reiciendis, assumenda animi aperiam, laborum, unde nisi nulla nobis! Facere minus perferendis laborum, deleniti officia nam repellendus iure itaque corporis reiciendis nostrum nobis voluptatum dignissimos cupiditate error blanditiis et voluptate sunt, praesentium magnam recusandae, aliquid laboriosam?')
+        //- ---------------------------- 4. featured
+        section.featured-work
+            a(name='featured').anchor
+            .container
+                +caption('Featured', 'Works', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.')
+                mixin workCategory(label,id)
+                    input(type='radio', name='fw-category', id=id)&attributes(attributes).category__radio
+                    label(for=id).category__label=label
+                .featured-work__category.category
+                    +workCategory('All','fw-all')(checked='true')
+                    +workCategory('Technology','fw-techn')
+                    +workCategory('Media','fw-media')
+                    +workCategory('Design','fw-design')
+                mixin galleryItem(src,category,orientation,title,article)
+                    .gallery__item.item.item_show(data-category=category)
+                        img(src=src, alt='image', data-orientation=orientation).item__img
+                        .item__title=title
+                        .modal
+                            .modal__content
+                                h1.modal__title=title
+                                p=category
+                                img(src=src).modal__img
+                                p.modal__article=article
+                            +modalControls
+                .featured-work__gallery.gallery
+                    +galleryItem('img/technology_01.jpg','Technology','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/media_01.jpg','Media','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/technology_02.jpg','Technology','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/technology_03.jpg','Technology','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/design_01.jpg','Design','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/design_02.jpg','Design','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/media_02.jpg','Media','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/technology_04.jpg','Technology','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/media_03.png','Media','vertical','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/design_03.jpg','Design','horizontal','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+                    +galleryItem('img/design_04.png','Design','vertical','Lorem impus','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita possimus fugiat accusantium eos similique, dolor at et velit nisi esse numquam minima dicta facilis dolorem impedit laudantium fuga reprehenderit aperiam architecto? Asperiores esse, quibusdam officia fugiat autem nesciunt pariatur!')
+        //- ---------------------------- 5. services
+        section.services
+            a(name='services').anchor
+            .container
+                +caption('Services', 'We Provide', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.')
+                .services__content
+                    mixin serviceCategory(scr,id)
+                        input(type='radio', name='sv-category', id=id)&attributes(attributes).list__radio
+                        label(for=id).list__label
+                            img(src=scr, alt='service').list__image
+                    .services__list.list
+                        +serviceCategory('img/service_1.png','sv-s1')(checked='true')
+                        +serviceCategory('img/service_2.png','sv-s2')
+                        +serviceCategory('img/service_3.png','sv-s3')
+                        +serviceCategory('img/service_4.png','sv-s4')
+                    mixin serviceSpecification(title, description, p, article)
+                        .specifications__specification.specification&attributes(attributes)
+                            .specification__title=title
+                            .specification__line(style='width: 15%')
+                            .specification__description(style='-webkit-box-orient: vertical;')
+                                p
+                                    =description
+                                    br
+                                    br
+                                    =p
+                            button.specification__button.button
+                                svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='16px', height='16px').button__svg.svg
+                                    path(fill-rule='evenodd', opacity='0.502', fill='rgb(0, 0, 0)', d='M16.000,9.043 L8.348,9.043 L8.348,15.999 L6.956,15.999 L6.956,9.043 L-0.000,9.043 L-0.000,7.652 L6.956,7.652 L6.956,-0.000 L8.348,-0.000 L8.348,7.652 L16.000,7.652 L16.000,9.043 Z').svg__path
+                                | Know More
+                            .modal
+                                .modal__content
+                                    h1.modal__title=title
+                                    p.modal__article=article
+                                +modalControls
+                    .services__specifications.specifications
+                        +serviceSpecification('Modern App Design', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum totam ad sint error porro. Consectetur, sunt, aperiam. Magni rem optio distinctio illum consequuntur delectus nulla illo aperiam itaque cumque.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officia vitae eveniet quam rem unde facilis.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem rerum, omnis modi. Accusantium, beatae aperiam modi deserunt, quos delectus omnis ad fugit sint fuga animi doloremque reprehenderit. Cum voluptatem, quas maxime reprehenderit dolor temporibus a itaque facere voluptatibus quis nam asperiores architecto, laudantium nesciunt, expedita optio. Ducimus esse, nesciunt nobis dignissimos sapiente distinctio debitis beatae quae illo culpa hic officia dolore minus ea dolorem et vero neque eaque a at eius eos incidunt aliquam. Quas accusamus voluptatum tempora, voluptate totam culpa dignissimos ullam similique unde delectus aperiam qui incidunt, magnam reprehenderit explicabo vel laudantium quia sed modi velit vitae a saepe. Accusamus hic, earum quisquam. Id libero obcaecati temporibus ipsa numquam, deleniti ad. Tempora fuga error nostrum corporis id, sint autem earum eum quibusdam voluptate facere numquam adipisci porro quidem ea velit fugiat mollitia iusto possimus, enim natus aut maiores culpa. Dolorem a ea, ab ipsa libero nemo similique esse quibusdam quod dolorum accusamus facere quaerat numquam, in sed laboriosam officiis assumenda debitis eaque! Sequi quod, voluptatem. Reiciendis ex officiis, odit, temporibus soluta exercitationem placeat neque laboriosam ipsa sapiente repudiandae nam voluptates voluptate ad maiores eaque nulla iure, ratione. Voluptas corporis modi corrupti id, deserunt natus. Ipsum animi aut nesciunt illo accusamus, aspernatur, aliquid doloremque quasi explicabo non earum mollitia cumque labore at repudiandae beatae minima minus maxime eius? Cupiditate quod, cum reiciendis ex neque ut hic blanditiis autem, voluptas assumenda temporibus aliquid repellat suscipit error ducimus officia consequatur modi!')(class="specification_active")
+                        +serviceSpecification('Lorem Ipsum Dolor', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, inventore nemo facilis sed repellendus consectetur optio, dolor dolorem commodi quod ea, corrupti reiciendis aspernatur, possimus ipsa voluptatem deleniti reprehenderit quis.','Vel officia vitae eveniet quam rem unde facilis.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem rerum, omnis modi. Accusantium, beatae aperiam modi deserunt, quos delectus omnis ad fugit sint fuga animi doloremque reprehenderit. Cum voluptatem, quas maxime reprehenderit dolor temporibus a itaque facere voluptatibus quis nam asperiores architecto, laudantium nesciunt, expedita optio. Ducimus esse, nesciunt nobis dignissimos sapiente distinctio debitis beatae quae illo culpa hic officia dolore minus ea dolorem et vero neque eaque a at eius eos incidunt aliquam. Quas accusamus voluptatum tempora, voluptate totam culpa dignissimos ullam similique unde delectus aperiam qui incidunt, magnam reprehenderit explicabo vel laudantium quia sed modi velit vitae a saepe. Accusamus hic, earum quisquam. Id libero obcaecati temporibus ipsa numquam, deleniti ad. Tempora fuga error nostrum corporis id, sint autem earum eum quibusdam voluptate facere numquam adipisci porro quidem ea velit fugiat mollitia iusto possimus, enim natus aut maiores culpa. Dolorem a ea, ab ipsa libero nemo similique esse quibusdam quod dolorum accusamus facere quaerat numquam, in sed laboriosam officiis assumenda debitis eaque! Sequi quod, voluptatem. Reiciendis ex officiis, odit, temporibus soluta exercitationem placeat neque laboriosam ipsa sapiente repudiandae nam voluptates voluptate ad maiores eaque nulla iure, ratione. Voluptas corporis modi corrupti id, deserunt natus. Ipsum animi aut nesciunt illo accusamus, aspernatur, aliquid doloremque quasi explicabo non earum mollitia cumque labore at repudiandae beatae minima minus maxime eius? Cupiditate quod, cum reiciendis ex neque ut hic blanditiis autem, voluptas assumenda temporibus aliquid repellat suscipit error ducimus officia consequatur modi!')
+                        +serviceSpecification('Quidem Rerum', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint placeat facilis minima suscipit maxime, ad atque dolorem in libero itaque consequatur officiis explicabo hic perspiciatis debitis, dolores ipsam nemo aliquid.','Dolorem nostrum illo unde similique perspiciatis. Iste accusantium velit illum id libero.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem rerum, omnis modi. Accusantium, beatae aperiam modi deserunt, quos delectus omnis ad fugit sint fuga animi doloremque reprehenderit. Cum voluptatem, quas maxime reprehenderit dolor temporibus a itaque facere voluptatibus quis nam asperiores architecto, laudantium nesciunt, expedita optio. Ducimus esse, nesciunt nobis dignissimos sapiente distinctio debitis beatae quae illo culpa hic officia dolore minus ea dolorem et vero neque eaque a at eius eos incidunt aliquam. Quas accusamus voluptatum tempora, voluptate totam culpa dignissimos ullam similique unde delectus aperiam qui incidunt, magnam reprehenderit explicabo vel laudantium quia sed modi velit vitae a saepe. Accusamus hic, earum quisquam. Id libero obcaecati temporibus ipsa numquam, deleniti ad. Tempora fuga error nostrum corporis id, sint autem earum eum quibusdam voluptate facere numquam adipisci porro quidem ea velit fugiat mollitia iusto possimus, enim natus aut maiores culpa. Dolorem a ea, ab ipsa libero nemo similique esse quibusdam quod dolorum accusamus facere quaerat numquam, in sed laboriosam officiis assumenda debitis eaque! Sequi quod, voluptatem. Reiciendis ex officiis, odit, temporibus soluta exercitationem placeat neque laboriosam ipsa sapiente repudiandae nam voluptates voluptate ad maiores eaque nulla iure, ratione. Voluptas corporis modi corrupti id, deserunt natus. Ipsum animi aut nesciunt illo accusamus, aspernatur, aliquid doloremque quasi explicabo non earum mollitia cumque labore at repudiandae beatae minima minus maxime eius? Cupiditate quod, cum reiciendis ex neque ut hic blanditiis autem, voluptas assumenda temporibus aliquid repellat suscipit error ducimus officia consequatur modi!')
+                        +serviceSpecification('Ipsum Dolor Sit', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda quibusdam iure possimus aperiam necessitatibus.','Sint placeat facilis minima suscipit maxime, ad atque dolorem in libero itaque consequatur officiis explicabo hic perspiciatis debitis, dolores ipsam nemo aliquid.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem rerum, omnis modi. Accusantium, beatae aperiam modi deserunt, quos delectus omnis ad fugit sint fuga animi doloremque reprehenderit. Cum voluptatem, quas maxime reprehenderit dolor temporibus a itaque facere voluptatibus quis nam asperiores architecto, laudantium nesciunt, expedita optio. Ducimus esse, nesciunt nobis dignissimos sapiente distinctio debitis beatae quae illo culpa hic officia dolore minus ea dolorem et vero neque eaque a at eius eos incidunt aliquam. Quas accusamus voluptatum tempora, voluptate totam culpa dignissimos ullam similique unde delectus aperiam qui incidunt, magnam reprehenderit explicabo vel laudantium quia sed modi velit vitae a saepe. Accusamus hic, earum quisquam. Id libero obcaecati temporibus ipsa numquam, deleniti ad. Tempora fuga error nostrum corporis id, sint autem earum eum quibusdam voluptate facere numquam adipisci porro quidem ea velit fugiat mollitia iusto possimus, enim natus aut maiores culpa. Dolorem a ea, ab ipsa libero nemo similique esse quibusdam quod dolorum accusamus facere quaerat numquam, in sed laboriosam officiis assumenda debitis eaque! Sequi quod, voluptatem. Reiciendis ex officiis, odit, temporibus soluta exercitationem placeat neque laboriosam ipsa sapiente repudiandae nam voluptates voluptate ad maiores eaque nulla iure, ratione. Voluptas corporis modi corrupti id, deserunt natus. Ipsum animi aut nesciunt illo accusamus, aspernatur, aliquid doloremque quasi explicabo non earum mollitia cumque labore at repudiandae beatae minima minus maxime eius? Cupiditate quod, cum reiciendis ex neque ut hic blanditiis autem, voluptas assumenda temporibus aliquid repellat suscipit error ducimus officia consequatur modi!')
+                    .services__image
+        //- ---------------------------- 6. team
+        section.team
+            a(name='team').anchor
+            .container
+                +caption('Team', 'Chinen & Skills', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.')
+                mixin teamMember(photo, name, job, tw, fb, ln, skill1, skill1Pr, skill2, skill2Pr, skill3, skill3Pr)
+                    .members__member.member
+                        .member__background.background
+                            img.background__photo(src=photo, alt='photo')
+                        .member__skills.skills
+                            .skills__skill.skill
+                                .skill__name=skill1
+                                .skill__progress.progress
+                                    div(style='width:' + skill1Pr + '%').progress__achievement.achievement
+                                        .achievement__fill
+                            .skills__skill.skill
+                                .skill__name=skill2
+                                .skill__progress.progress
+                                    div(style='width:' + skill2Pr + '%').progress__achievement.achievement
+                                        .achievement__fill
+                            .skills__skill.skill
+                                .skill__name=skill3
+                                .skill__progress.progress
+                                    div(style='width:' + skill3Pr + '%').progress__achievement.achievement
+                                        .achievement__fill
+                        .member__who.who
+                            .who__name=name
+                            .who__job=job
+                            .who__socials.socials
+                                a(href=tw).socials__link 
+                                a(href=fb).socials__link 
+                                a(href=ln).socials__link 
+                .team__members.members
+                    +teamMember('img/member_01.jpg','Bedi Manos', 'UI/UX Parena', '#', '#', '#', 'UI/UX Parena', '85', 'English', '77', 'Communication', '90')
+                    +teamMember('img/member_02.jpg','Al Rayhan', 'UI/UX Designer', '#', '#', '#', 'UI/UX  Design', '80', 'English', '75', 'Communication', '77')
+                    +teamMember('img/member_03.jpeg','Ali Sayed', 'UI/UX Designer', '#', '#', '#', 'UI/UX  Design', '90', 'English', '80', 'Communication', '80')
+        //- ---------------------------- 7. client-said
+        section.client-said
+            a(name='clients').anchor
+            .container
+                +caption('Clients', 'Said', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.')
+                .client-said__slider.slider
+                    .slider__arrow.slider__arrow_disabled 
+                    .slider__arrow 
+                    mixin sliderProgress(id)
+                        input(type='radio', name='cs-progress', id=id)&attributes(attributes).controls__radio
+                        label(for=id).controls__label
+                    .slider__controls.controls
+                        +sliderProgress('cs-client1')(checked='true')
+                        +sliderProgress('cs-client2')
+                        +sliderProgress('cs-client3')
+                    mixin clientSlide(said,stars,photo,name,job)
+                        .carousel__slide.slide&attributes(attributes)
+                            .slide__image.image
+                                img.image__photo(src=photo, alt='photo')
+                            .slide__said=said
+                            .slide__stars
+                                - for (var i=0; i<stars; i++) {
+                                    |
+                                - }
+                            .slide__client.client
+                                span.client__name=name
+                                span.client__job
+                                    i=job
+                    .slider__carousel.carousel
+                        +clientSlide('“This was my first time renting from car rental. The service rep help me find the best rental to suit my needs. I will definitely rent with this company again”','5','img/client_03.jpg','Kita Say, ','HK Director')(class='slide_active')
+                        +clientSlide('“This was my first time renting from car rental. The service rep help me find the best rental to suit my needs. I will definitely rent with this company again”','5','img/client_01.jpg','Al Rayhan, ','UX Director')
+                        +clientSlide('“This was my first time renting from car rental. The service rep help me find the best rental to suit my needs. I will definitely rent with this company again”','4','img/client_02.jpg','Ashi Sleshi, ','ZM Safier')
+        //- ---------------------------- 8. logo
+        section.logo
+            a(name='partners').anchor
+            .container.logo__content
+                img.logo__partner(src='img/partner_1.png', alt='logo')
+                img.logo__partner(src='img/partner_2.png', alt='logo')
+                img.logo__partner(src='img/partner_3.png', alt='logo')
+                img.logo__partner(src='img/partner_1.png', alt='logo')
+                img.logo__partner(src='img/partner_2.png', alt='logo')
+                img.logo__partner(src='img/partner_3.png', alt='logo')
+        //- ---------------------------- 9. footer
+        footer.footer
+            a(name='contact').anchor
+            .container
+                button.footer__button Contact Us
+                .modal
+                    .modal__content
+                        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d587.8869606213319!2d27.609361829282058!3d53.886465998756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbce3be79334d9%3A0x817b228ea6dc30f0!2z0KHRgtC-0YDQvNC90Y3RgiDQotC10LrQvdC-0LvQvtC00LbQuNGBIChTdG9ybW5ldCk!5e0!3m2!1sru!2sby!4v1520936816445', frameborder='0', style='border:0', allowfullscreen='').modal__map
+                    span.modal__close 
+                .footer__copyright
+                    a.footer__social(href='#') 
+                    a.footer__social(href='#') 
+                    a.footer__social(href='#') 
+                    a.footer__social(href='#') 
+                    span.rights © 2015 - 2016 Deviserweb Ltd.
+        script(src="js/index.js")
