@@ -6,7 +6,6 @@
         .list {
             flex-basis: 100%;
             flex-direction: row;
-            margin-bottom: 20px;
             margin: 0 0 20px;
             &__label {
                 width: 104px;
@@ -154,7 +153,7 @@
             flex-basis: 100%;
             order: 2;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-between; // fallback
             justify-content: space-evenly;
             &__label {
                 margin: 5px;

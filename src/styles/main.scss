@@ -69,10 +69,10 @@ body {
         z-index: 1;
     }
     &__title {
-        
+
     }
     &__article {
-        
+
     }
     &__img {
         max-width: 100%;
@@ -85,7 +85,6 @@ body {
     &__close {
         font-size: $font-size-medium;
         font-family: font_icons;
-        color: $color-stroke-light;
         color: $color-outer;
         &:hover {
             color: $color-light;
@@ -166,14 +165,14 @@ body {
         font-family: font_titles;
         color: $color-primary;
         line-height: 0.9;
-        
+
         border: 3px solid $color-bg-dark;
         border-radius: 2px;
         outline: 1px solid $color-stroke;
         outline-offset: -4px;
-        
+
         padding: 5px 17px 8px;
-        
+
         pointer-events: auto;
         &:first-letter {
             @extend .highlight-text;
@@ -380,7 +379,7 @@ body {
                     z-index: 1;
                     left: 1px;
                     top: -2px;
-                    
+
                     font-family: font_titles;
                     font-size: $font-size-small;
                     color: $color-highlight-contrast;
@@ -424,17 +423,17 @@ body {
             &__button {
                 @include button;
                 color: $color-light;
-                
+
                 background: $color-highlight-contrast;
                 border: 1px solid $color-highlight-contrast;
-                
+
                 width: 80%;
                 max-width: 234px;
                 margin-top: 5px;
             }
             .button {
                 &__svg {
-                    
+
                 }
                 .svg {
                     &__path {
@@ -470,7 +469,7 @@ body {
     .processes {
         color: $color-light;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; //fallback
         justify-content: space-evenly;
         flex-wrap: wrap;
         margin-top: 98px;
@@ -522,13 +521,13 @@ body {
                 line-height: 55px;
                 background: $color-light;
                 border: 1px solid $color-light;
-                
+
                 position: absolute;
                 bottom: 0;
                 left: 50%;
                 transform: translate(-50%,45%);
                 z-index: 10;
-                
+
                 width: 228px;
                 padding-bottom: 7px;
             }
@@ -541,20 +540,20 @@ body {
                 }
                 .svg {
                     &__path {
-                        
+
                     }
                 }
                 &:hover {
                     .svg {
                         &__path {
-                            
+
                         }
                     }
                 }
                 &:active {
                     .svg {
                         &__path {
-                            
+
                         }
                     }
                 }
@@ -624,7 +623,7 @@ body {
             &::before {
                 content: "";
                 display: inline-block;
-                padding-top: 0%;
+                padding-top: 0;
                 transition: all 1s;
             }
             &:hover {
@@ -890,7 +889,7 @@ body {
                 top: 90%;
                 left: 50%;
                 transform: translate(-50%,-50%);
-                
+
                 opacity: 0;
                 transition: all .5s;
             }
@@ -947,18 +946,18 @@ body {
                 text-align: center;
                 border-radius: 2px;
                 width: 262px;
-                
+
                 box-shadow: 0px 5px 25px -5px $color-outer;
-                
+
                 position: absolute;
                 z-index: 5;
-                
+
                 bottom: -24px;
                 left: 50%;
                 transform: translate(-50%,0);
-                
+
                 transition: all .5s;
-                
+
                 padding-top: 11px;
                 padding-bottom: 15px;
             }
@@ -1099,11 +1098,9 @@ body {
                     height: 100px;
                     border-radius: 50%;
                     overflow: hidden;
-                    position: relative;
                     border: 1px solid $color-outer;
                     box-sizing: border-box;
                     position: absolute;
-                    top: calc(-100% + 6px);
                     top: 0;
                     left: 50%;
                     transform: translate(-50%,calc(-50% - 5px));
@@ -1132,7 +1129,7 @@ body {
                     margin: 16px 0 14px;
                 }
                 &__client {
-                    
+
                 }
                 .client {
                     &__name {
@@ -1150,7 +1147,7 @@ body {
     background: $color-bg-secondary;
     &__content {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-around; //fallback
         justify-content: space-evenly;
         flex-wrap: wrap;
         padding: 76px 0;
@@ -1197,11 +1194,11 @@ body {
         line-height: 53px;
         border-radius: 50%;
         background: $color-bg-socials;
-        
+
         color: $color-light;
         text-decoration: none;
         margin: 10px 8px;
-        
+
         &:hover {
             box-shadow: 0px 0px 20px 5px $color-outer;
             background: $color-highlight-contrast;

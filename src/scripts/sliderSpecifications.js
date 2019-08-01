@@ -6,10 +6,10 @@ document.addEventListener('click', function(event) {
         const labelList = document.querySelectorAll('.services .list__label');
         const specificationsList = document.querySelectorAll('.services .specification');
         const specificationsLinesList = document.querySelectorAll('.services .specification .specification__line');
-        
+
         let currentIndex;
         let chosenIndex;
-        let currentWidth;
+        let currentLineWidth;
 
         for (let i = 0; i < radioList.length; i++) {
             if (radioList[i].checked) {
@@ -24,11 +24,11 @@ document.addEventListener('click', function(event) {
             }
         }
         if (currentIndex === chosenIndex) return;
-        
+
         currentLineWidth = parseInt(specificationsLinesList[currentIndex].style.width);
         specificationsList[currentIndex].classList.remove('specification_active');
         specificationsList[chosenIndex].classList.add('specification_active');
-        
+
         setTimeout(function(){
             for (let i = 0; i < specificationsLinesList.length; i++) {
                 const newWidth = currentLineWidth / (currentIndex + 1) * (chosenIndex + 1) + '%';

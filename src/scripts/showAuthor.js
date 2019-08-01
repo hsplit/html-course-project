@@ -5,15 +5,14 @@
             document.addEventListener('keydown', function(event) {
                 const indexKeyCode = showAuthorHSplit.indexOf(event.keyCode);
                 if (indexKeyCode === -1) {
-                    return;
-                } else {
-                    const temp = showAuthorHSplit[0];
-                    showAuthorHSplit[indexKeyCode] = temp;
-                    showAuthorHSplit.shift();
-                    if (showAuthorHSplit.length === 0) {
-                        alert('Author - Helg Split. 04.2018\nhttps://vk.com/h.split\noleg.sak.by@gmail.com');
-                        showAuthorHSplit = [65, 85, 84, 72];
-                    }
+                    return
+                }
+                const temp = showAuthorHSplit[0];
+                showAuthorHSplit[indexKeyCode] = temp;
+                showAuthorHSplit.shift();
+                if (showAuthorHSplit.length === 0) {
+                    alert('Author - Helg Split. 04.2018\nhttps://www.linkedin.com/in/oleg-sak/');
+                    showAuthorHSplit = [65, 85, 84, 72];
                 }
             });
             document.addEventListener('keyup', function(event) {
