@@ -1,6 +1,6 @@
-Html Course Project [Open in browser](https://hsplit.github.io/html-course-project/)
+## Html Course Project [Open in browser](https://hsplit.github.io/html-course-project/)
 
-###Project environment
+### Project environment
 - Gulp
 - Pug(Jade)
 - Scss
